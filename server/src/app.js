@@ -20,6 +20,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Routes
+app.get("/", (req, res) => {
+  res.status(200).send("API is running");
+});
 app.use("/api/users", userRouter);
 app.use("/api/rooms", roomRouter);
 
