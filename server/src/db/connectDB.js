@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-// Connect to MongoDB
+// Connect to DB
 const connectDB = async () => {
   try {
     const mongoUri =
