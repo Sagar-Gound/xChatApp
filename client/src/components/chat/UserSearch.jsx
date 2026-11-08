@@ -22,16 +22,14 @@ const UserSearch = ({ onClose }) => {
           `/api/users/search?searchTerm=${encodeURIComponent(searchTerm.trim())}`
         );
         if (res.data?.success && Array.isArray(res.data?.data)) {
-          // Filter out current user if in list
-          const filtered = res.data.data.filter((u) => u._id !== user?._id);
-          setResults(filtered.length > 0 ? filtered : res.data.data);
+          setResults(res.data.data);
         }
       } catch {
         setResults([]);
       } finally {
         setSearching(false);
       }
-    }, 300);
+    }, 100);
 
     return () => clearTimeout(timer);
   }, [searchTerm, user?._id]);

@@ -3,8 +3,9 @@ import axios from "axios";
 
 const AuthContext = createContext(null);
 
-const BACKEND_URL =
+const rawBackendUrl =
   import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+const BACKEND_URL = rawBackendUrl.replace(/\/+$/, "");
 
 // API client configured with credentials
 export const api = axios.create({
