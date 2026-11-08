@@ -22,10 +22,13 @@ export const AuthProvider = ({ children }) => {
       return null;
     }
   });
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   // Check auth status on initial load
   useEffect(() => {
+    const saved = localStorage.getItem("xchat_user");
+    if (!saved) return;
+
     const fetchMe = async () => {
       try {
         const res = await api.get("/api/users/me");
@@ -39,8 +42,6 @@ export const AuthProvider = ({ children }) => {
       } catch {
         setUser(null);
         localStorage.removeItem("xchat_user");
-      } finally {
-        setLoading(false);
       }
     };
     fetchMe();
