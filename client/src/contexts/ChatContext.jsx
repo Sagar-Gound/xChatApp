@@ -28,7 +28,7 @@ export const ChatProvider = ({ children }) => {
         return res.data.data;
       }
     } catch {
-      // Ignore fetch errors
+      // Ignore errors
     } finally {
       setLoadingRooms(false);
     }
