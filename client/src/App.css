@@ -1,0 +1,11 @@
+.search-result-item:hover {
+  background-color: #f1f5f9;
+}
+
+#chat-rooms-list button:hover {
+  background-color: #f8fafc;
+}
+
+#chat-rooms-list button.bg-primary-subtle:hover {
+  background-color: #e0f2fe;
+}
